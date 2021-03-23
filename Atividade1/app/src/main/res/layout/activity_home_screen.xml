@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/HomeScreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/ActivityMainPage"
+    tools:context=".HomeScreenActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:text="Bem-vindo"
+        android:textColor="@color/white"
+        android:textSize="30dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/btnLogin"
+            style="@style/MyBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="voltarLogin"
+            android:text="Login" />
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="20dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnSplash"
+            style="@style/MyBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="voltarSplash"
+            android:text="SplashScreen" />
+
+    </LinearLayout>
+
+</RelativeLayout>

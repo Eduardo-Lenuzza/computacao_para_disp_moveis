@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/ActivityMainPage"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@android:dimen/app_icon_size"
+        android:src="@drawable/dev" />
+
+    <androidx.cardview.widget.CardView
+        style="@style/MyCardView"
+        android:id="@+id/cardView"
+        android:layout_width="306dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/MyEditTextTheme"
+            android:id="@+id/textLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/pes"
+            android:maxLength="10"
+            android:singleLine="true" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/MyEditTextTheme"
+            android:id="@+id/textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="70dp"
+            android:drawableLeft="@drawable/cad"
+            android:maxLength="10"
+            android:singleLine="true" />
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        style="@style/MyBtn"
+        android:id="@+id/btnEntrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardView"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="16dp"
+        android:onClick="login"
+        android:text="Entrar" />
+
+</RelativeLayout>
