@@ -1,4 +1,4 @@
-package com.example.atividade1;
+package com.example.atividade1.view;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,13 +9,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.example.atividade1.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class MainActivity extends AppCompatActivity {
 
     private String login = "";
     private String senha = "";
-    private AlertDialog alerta;
     TextInputEditText textUser;
     TextInputEditText textPass;
 

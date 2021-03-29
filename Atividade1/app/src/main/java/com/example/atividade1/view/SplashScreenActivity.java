@@ -1,4 +1,4 @@
-package com.example.atividade1;
+package com.example.atividade1.view;
 
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.atividade1.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

@@ -5,44 +5,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@style/ActivityMainPage"
-    tools:context=".HomeScreenActivity">
+    tools:context=".view.HomeScreenActivity">
 
     <TextView
+        android:id="@+id/textBemVindo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="50dp"
         android:text="Bem-vindo"
         android:textColor="@color/white"
         android:textSize="30dp" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/textMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:layout_centerHorizontal="true">
+        android:layout_marginTop="10dp"
+        android:text="Menu:"
+        android:textColor="@color/white"
+        android:layout_below="@+id/textBemVindo"
+        android:textSize="16dp" />
 
-        <Button
-            android:id="@+id/btnLogin"
-            style="@style/MyBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="voltarLogin"
-            android:text="Login" />
-
-        <View
-            android:layout_width="15dp"
-            android:layout_height="20dp"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/btnSplash"
-            style="@style/MyBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="voltarSplash"
-            android:text="SplashScreen" />
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/btnLogin"
+        style="@style/MyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="voltarLogin"
+        android:layout_below="@+id/textMenu"
+        android:text="Login" />
+    <View
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_weight="1" />
+    <Button
+        android:id="@+id/btnSplash"
+        style="@style/MyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="voltarSplash"
+        android:layout_below="@+id/btnLogin"
+        android:text="SplashScreen" />
+    <View
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_weight="1" />
+    <Button
+        android:id="@+id/colecaoPosts"
+        style="@style/MyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="colecaoApi"
+        android:layout_below="@+id/btnSplash"
+        android:text="Coleção Posts" />
+    <View
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_weight="1" />
+    <Button
+        android:id="@+id/colecaoComments"
+        style="@style/MyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="colecaoApi"
+        android:layout_below="@+id/colecaoPosts"
+        android:text="Coleção Comments" />
+    <View
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_weight="1" />
+    <Button
+        android:id="@+id/colecaoAlbums"
+        style="@style/MyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="colecaoApi"
+        android:layout_below="@+id/colecaoComments"
+        android:text="Coleção Albums" />
 
 </RelativeLayout>
