@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi;
 import com.example.atividade1.model.Albums;
 import com.example.atividade1.model.Comments;
 import com.example.atividade1.model.Posts;
+import com.example.atividade1.model.Users;
 
 import org.json.JSONArray;
 
@@ -64,6 +65,9 @@ public class Http_service extends AsyncTask<String, String, String> {
                     return urlComReplace;
                 case "albums":
                     Albums.jsonIterable(jsonArray);
+                    return urlComReplace;
+                case "users":
+                    Users.jsonIterable(jsonArray);
                     return urlComReplace;
                 default:
                     return null;

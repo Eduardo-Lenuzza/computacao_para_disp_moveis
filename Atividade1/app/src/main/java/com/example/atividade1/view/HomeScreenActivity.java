@@ -1,10 +1,12 @@
 package com.example.atividade1.view;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.atividade1.R;
@@ -17,7 +19,6 @@ public class HomeScreenActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
@@ -36,9 +37,12 @@ public class HomeScreenActivity extends AppCompatActivity {
         finish();
     }
 
-    public void colecaoApi(View view){
+    @RequiresApi(api = Build.VERSION_CODES.Q)
+    public void colecaoApi(View view) {
         Intent intent = new Intent(getApplicationContext(), ColecaoActivity.class);
-        intent.putExtra("tipo", Integer.toString(view.getId()));
+        String[] tipoDado = view.toString().split("/");
+        tipoDado[1] = tipoDado[1].replaceAll("\\}", "");
+        intent.putExtra("tipo", tipoDado[1]);
         startActivity(intent);
     }
 }

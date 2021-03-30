@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/HomeScreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/ActivityMainPage"
+    tools:context=".view.HomeScreenActivity">
+
+    <TextView
+        android:id="@+id/textBemVindo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Bem-vindo"
+        android:textColor="@color/white"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/textAtividade1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Atividade 1:"
+        android:textColor="@color/white"
+        android:layout_below="@+id/textBemVindo"
+        android:textSize="16dp" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        style="@style/MyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="voltarLogin"
+        android:layout_below="@+id/textAtividade1"
+        android:text="Login" />
+    <View
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_weight="1" />
+    <Button
+        android:id="@+id/btnSplash"
+        style="@style/MyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="voltarSplash"
+        android:layout_below="@+id/btnLogin"
+        android:text="SplashScreen" />
+    <View
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_weight="1" />
+    <TextView
+        android:id="@+id/textAtividade2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Atividade 2:"
+        android:textColor="@color/white"
+        android:layout_below="@+id/btnSplash"
+        android:textSize="16dp" />
+    <Button
+        android:id="@+id/colecaoPosts"
+        style="@style/MyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="colecaoApi"
+        android:layout_below="@+id/textAtividade2"
+        android:text="@string/posts" />
+    <View
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_weight="1" />
+    <Button
+        android:id="@+id/colecaoComments"
+        style="@style/MyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="colecaoApi"
+        android:layout_below="@+id/colecaoPosts"
+        android:text="@string/comments" />
+    <View
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_weight="1"
+        tools:ignore="ObsoleteLayoutParam" />
+    <Button
+        android:id="@+id/colecaoAlbums"
+        style="@style/MyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="colecaoApi"
+        android:layout_below="@+id/colecaoComments"
+        android:text="@string/albums"
+        tools:targetApi="lollipop" />
+    <View
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_weight="1"
+        tools:ignore="ObsoleteLayoutParam" />
+    <Button
+        android:id="@+id/colecaoUsers"
+        style="@style/MyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="colecaoApi"
+        android:layout_below="@+id/colecaoAlbums"
+        android:text="@string/users"
+        tools:targetApi="lollipop" />
+
+</RelativeLayout>

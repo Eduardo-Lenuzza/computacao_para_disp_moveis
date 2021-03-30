@@ -11,15 +11,14 @@ import com.example.atividade1.R;
 import com.example.atividade1.model.Albums;
 import com.example.atividade1.model.Comments;
 import com.example.atividade1.model.Posts;
+import com.example.atividade1.model.Users;
 
 public class DetalhesActivity extends AppCompatActivity {
     Posts posts;
     Comments comments;
     Albums albums;
+    Users users;
     private String idTipoColecao;
-    private String idTipoPosts;
-    private String idTipoComments;
-    private String idTipoAlbums;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +27,6 @@ public class DetalhesActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_detalhes);
-
-        idTipoPosts = Integer.toString(R.id.colecaoPosts);
-        idTipoComments = Integer.toString(R.id.colecaoComments);
-        idTipoAlbums = Integer.toString(R.id.colecaoAlbums);
 
         Bundle extras = getIntent().getExtras();
         if (extras == null) {
@@ -44,24 +39,30 @@ public class DetalhesActivity extends AppCompatActivity {
 
     public void insereTexto(String idTipoColecao) {
 
-        if (idTipoColecao.equals(idTipoPosts)) {
-            posts = getIntent().getExtras().getParcelable("dados");
-            TextView textView = findViewById(R.id.textViewDetalhes);
-            textView.setTextColor(Color.parseColor("#FFFFFF"));
-            textView.setBackgroundColor(Color.parseColor("#696969"));
-            textView.setText("Objeto Posts:\n" + posts.toString());
-        } else if (idTipoColecao.equals(idTipoComments)) {
-            comments = getIntent().getExtras().getParcelable("dados");
-            TextView textView = findViewById(R.id.textViewDetalhes);
-            textView.setTextColor(Color.parseColor("#FFFFFF"));
-            textView.setBackgroundColor(Color.parseColor("#696969"));
-            textView.setText("Objeto Comments:\n" + comments.toString());
-        } else if (idTipoColecao.equals(idTipoAlbums)) {
-            albums = getIntent().getExtras().getParcelable("dados");
-            TextView textView = findViewById(R.id.textViewDetalhes);
-            textView.setTextColor(Color.parseColor("#FFFFFF"));
-            textView.setBackgroundColor(Color.parseColor("#696969"));
-            textView.setText("Objeto Albums:\n" + albums.toString());
+        switch (idTipoColecao) {
+            case "colecaoPosts":
+                posts = getIntent().getExtras().getParcelable("dados");
+                criaTextView().setText("Objeto Posts:\n" + posts.toString());
+                break;
+            case "colecaoComments":
+                comments = getIntent().getExtras().getParcelable("dados");
+                criaTextView().setText("Objeto Comments:\n" + comments.toString());
+                break;
+            case "colecaoAlbums":
+                albums = getIntent().getExtras().getParcelable("dados");
+                criaTextView().setText("Objeto Albums:\n" + albums.toString());
+                break;
+            case "colecaoUsers":
+                users = getIntent().getExtras().getParcelable("dados");
+                criaTextView().setText("Objeto Users:\n" + users.toString());
+                break;
         }
+    }
+
+    public TextView criaTextView() {
+        TextView textView = findViewById(R.id.textViewDetalhes);
+        textView.setTextColor(Color.parseColor("#FFFFFF"));
+        textView.setBackgroundColor(Color.parseColor("#696969"));
+        return textView;
     }
 }
