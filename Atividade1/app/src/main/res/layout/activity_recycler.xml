@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recyclerActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/ActivityMainPage"
+    tools:context=".view.RecyclerActivity">
+
+    <TextView
+        android:id="@+id/textRecycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/tituloRecycler"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/recycler_posts"
+        style="@style/MyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textRecycler"
+        android:onClick="mostraDetalhesPosts"
+        android:text="@string/posts" />
+
+    <Button
+        android:id="@+id/recycler_comments"
+        style="@style/MyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recycler_posts"
+        android:onClick="mostraDetalhesPosts"
+        android:text="@string/comments" />
+
+    <Button
+        android:id="@+id/recycler_albums"
+        style="@style/MyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recycler_comments"
+        android:onClick="mostraDetalhesPosts"
+        android:text="@string/albums" />
+
+    <Button
+        android:id="@+id/recycler_users"
+        style="@style/MyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recycler_albums"
+        android:onClick="mostraDetalhesPosts"
+        android:text="@string/users" />
+
+    <TextView
+        android:id="@+id/recyclerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recycler_users"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/showRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/recyclerTitle"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp" />
+
+
+</RelativeLayout>

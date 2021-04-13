@@ -4,5 +4,11 @@
     <string name="comments">Coleção Comments</string>
     <string name="albums">Coleção Albums</string>
     <string name="users">Coleção Users</string>
+    <string name="recycler">Coleção RecyclerView</string>
+    <string name="tituloRecycler">Mostrar detalhes em RecyclerView:</string>
+    <string name="tituloPosts">POSTS:</string>
+    <string name="tituloComments">COMMENTS:</string>
+    <string name="tituloAlbums">ALBUMS:</string>
+    <string name="tituloUsers">USERS:</string>
 
 </resources>

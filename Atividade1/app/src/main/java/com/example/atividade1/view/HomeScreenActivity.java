@@ -10,8 +10,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.atividade1.R;
-import com.example.atividade1.view.MainActivity;
-import com.example.atividade1.view.SplashScreenActivity;
+
+import static com.example.atividade1.utils.Constantes.RECYCLER;
+import static com.example.atividade1.utils.TipoBtn.extraiTipo;
 
 public class HomeScreenActivity extends AppCompatActivity {
 
@@ -23,6 +24,8 @@ public class HomeScreenActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_home_screen);
+
+        System.out.println("-> Home screen Activity");
     }
 
     public void voltarLogin(View view) {
@@ -39,10 +42,14 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     public void colecaoApi(View view) {
-        Intent intent = new Intent(getApplicationContext(), ColecaoActivity.class);
-        String[] tipoDado = view.toString().split("/");
-        tipoDado[1] = tipoDado[1].replaceAll("\\}", "");
-        intent.putExtra("tipo", tipoDado[1]);
-        startActivity(intent);
+        String tipoDado = extraiTipo(view);
+        if (tipoDado.equals(RECYCLER)) {
+            Intent intent = new Intent(getApplicationContext(), RecyclerActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(getApplicationContext(), ColecaoActivity.class);
+            intent.putExtra("tipo", tipoDado);
+            startActivity(intent);
+        }
     }
 }

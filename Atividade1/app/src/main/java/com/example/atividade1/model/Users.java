@@ -1,7 +1,16 @@
 package com.example.atividade1.model;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+
+import com.example.atividade1.utils.Objects;
+import com.example.atividade1.view.DetalhesActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -9,7 +18,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Users implements Parcelable {
+import static androidx.core.content.ContextCompat.startActivity;
+
+public class Users extends Objects implements Parcelable {
     private int id;
     private String name;
     private String username;
@@ -95,74 +106,6 @@ public class Users implements Parcelable {
         return name;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    /*public String getAddress() {
-        return address;
-    }*/
-
-    public String getStreet() {
-        return street;
-    }
-
-    public String getSuite() {
-        return suite;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-   /*public String getGeo() {
-        return geo;
-    }*/
-
-    public String getLat() {
-        return lat;
-    }
-
-    public String getLng() {
-        return lng;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getWebsite() {
-        return website;
-    }
-
-    /*public String getCompany() {
-        return company;
-    }*/
-
-    public String getName2() {
-        return name2;
-    }
-
-    public String getCatchPhrase() {
-        return catchPhrase;
-    }
-
-    public String getBs() {
-        return bs;
-    }
-
-    public static List<Users> getObjUsers() {
-        return objUsers;
-    }
-
     @Override
     public String toString() {
         return "\nid = " + id +
@@ -184,6 +127,60 @@ public class Users implements Parcelable {
                 "\ncatchPhrase = " + catchPhrase +
                 "\nbs = " + bs +
                 "\n}";
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(name);
+        dest.writeString(username);
+        dest.writeString(email);
+        //dest.writeString(address);
+        dest.writeString(street);
+        dest.writeString(suite);
+        dest.writeString(city);
+        dest.writeString(zipcode);
+        //dest.writeString(geo);
+        dest.writeString(lat);
+        dest.writeString(lng);
+        dest.writeString(phone);
+        dest.writeString(website);
+        //dest.writeString(company);
+        dest.writeString(name2);
+        dest.writeString(catchPhrase);
+        dest.writeString(bs);
+    }
+
+    public static void criaBotao(Context context, LinearLayout linearLayout, String idTipoColecao) {
+        Button btn;
+        for (Users users : Users.objUsers) {
+            btn = new Button(context);
+            View v = new View(context);
+            btn.setText("Detalhes do objeto " + Integer.toString(users.getId()));
+            btn.setTag(users);
+            btn.setBackgroundColor(Color.parseColor("#228B22"));
+            btn.setTextColor(Color.parseColor("#FFFFFF"));
+            v.setMinimumHeight(10);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(view.getContext(), DetalhesActivity.class);
+                    Button botao = (Button) view;
+                    Users dado = (Users) botao.getTag();
+
+                    intent.putExtra("dados", dado);
+                    intent.putExtra("tipo", idTipoColecao);
+                    startActivity(view.getContext(), intent, null);
+                }
+            });
+            linearLayout.addView(btn);
+            linearLayout.addView(v);
+        }
     }
 
     public static void jsonIterable(JSONArray jsonArray) throws Exception {
@@ -215,32 +212,5 @@ public class Users implements Parcelable {
             );
             objUsers.add(users);
         }
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
-        dest.writeString(name);
-        dest.writeString(username);
-        dest.writeString(email);
-        //dest.writeString(address);
-        dest.writeString(street);
-        dest.writeString(suite);
-        dest.writeString(city);
-        dest.writeString(zipcode);
-        //dest.writeString(geo);
-        dest.writeString(lat);
-        dest.writeString(lng);
-        dest.writeString(phone);
-        dest.writeString(website);
-        //dest.writeString(company);
-        dest.writeString(name2);
-        dest.writeString(catchPhrase);
-        dest.writeString(bs);
     }
 }

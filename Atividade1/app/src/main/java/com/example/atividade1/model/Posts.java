@@ -1,7 +1,16 @@
 package com.example.atividade1.model;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+
+import com.example.atividade1.utils.Objects;
+import com.example.atividade1.view.DetalhesActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -9,7 +18,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Posts implements Parcelable {
+import static androidx.core.content.ContextCompat.startActivity;
+
+public class Posts extends Objects implements Parcelable {
     private int userId;
     private int id;
     private String title;
@@ -42,20 +53,8 @@ public class Posts implements Parcelable {
         }
     };
 
-    public int getUserId() {
-        return userId;
-    }
-
     public int getId() {
         return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getBody() {
-        return body;
     }
 
     @Override
@@ -77,6 +76,33 @@ public class Posts implements Parcelable {
         dest.writeInt(id);
         dest.writeString(title);
         dest.writeString(body);
+    }
+
+    public static void criaBotao(Context context, LinearLayout linearLayout, String idTipoColecao) {
+        Button btn;
+        for (Posts post : Posts.objPosts) {
+            btn = new Button(context);
+            View v = new View(context);
+            btn.setText("Detalhes do objeto " + Integer.toString(post.getId()));
+            btn.setTag(post);
+            btn.setBackgroundColor(Color.parseColor("#228B22"));
+            btn.setTextColor(Color.parseColor("#FFFFFF"));
+            v.setMinimumHeight(10);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(view.getContext(), DetalhesActivity.class);
+                    Button botao = (Button) view;
+                    Posts dado = (Posts) botao.getTag();
+
+                    intent.putExtra("dados", dado);
+                    intent.putExtra("tipo", idTipoColecao);
+                    startActivity(view.getContext(), intent, null);
+                }
+            });
+            linearLayout.addView(btn);
+            linearLayout.addView(v);
+        }
     }
 
     public static void jsonIterable(JSONArray jsonArray) throws Exception {

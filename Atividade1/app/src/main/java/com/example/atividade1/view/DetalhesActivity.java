@@ -13,6 +13,11 @@ import com.example.atividade1.model.Comments;
 import com.example.atividade1.model.Posts;
 import com.example.atividade1.model.Users;
 
+import static com.example.atividade1.utils.Constantes.ALBUMS;
+import static com.example.atividade1.utils.Constantes.COMMENTS;
+import static com.example.atividade1.utils.Constantes.POSTS;
+import static com.example.atividade1.utils.Constantes.USERS;
+
 public class DetalhesActivity extends AppCompatActivity {
     Posts posts;
     Comments comments;
@@ -40,19 +45,19 @@ public class DetalhesActivity extends AppCompatActivity {
     public void insereTexto(String idTipoColecao) {
 
         switch (idTipoColecao) {
-            case "colecaoPosts":
+            case POSTS:
                 posts = getIntent().getExtras().getParcelable("dados");
                 criaTextView().setText("Objeto Posts:\n" + posts.toString());
                 break;
-            case "colecaoComments":
+            case COMMENTS:
                 comments = getIntent().getExtras().getParcelable("dados");
                 criaTextView().setText("Objeto Comments:\n" + comments.toString());
                 break;
-            case "colecaoAlbums":
+            case ALBUMS:
                 albums = getIntent().getExtras().getParcelable("dados");
                 criaTextView().setText("Objeto Albums:\n" + albums.toString());
                 break;
-            case "colecaoUsers":
+            case USERS:
                 users = getIntent().getExtras().getParcelable("dados");
                 criaTextView().setText("Objeto Users:\n" + users.toString());
                 break;

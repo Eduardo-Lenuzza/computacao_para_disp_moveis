@@ -19,11 +19,16 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import static com.example.atividade1.utils.Constantes.ALBUMS;
+import static com.example.atividade1.utils.Constantes.COMMENTS;
+import static com.example.atividade1.utils.Constantes.POSTS;
+import static com.example.atividade1.utils.Constantes.USERS;
+
 public class Http_service extends AsyncTask<String, String, String> {
-    private TarefaColecaoActivity tarefaColecaoActivity;
+    private TarefaColecao tarefaColecaoActivity;
     private ProgressDialog progress;
 
-    public Http_service(TarefaColecaoActivity tarefaColecaoActivity, ProgressDialog progress) {
+    public Http_service(TarefaColecao tarefaColecaoActivity, ProgressDialog progress) {
         this.tarefaColecaoActivity = tarefaColecaoActivity;
         this.progress = progress;
     }
@@ -57,16 +62,16 @@ public class Http_service extends AsyncTask<String, String, String> {
             urlComReplace = strings[0].replaceAll("https://jsonplaceholder.typicode.com/", "").toLowerCase();
 
             switch (urlComReplace) {
-                case "posts":
+                case POSTS:
                     Posts.jsonIterable(jsonArray);
                     return urlComReplace;
-                case "comments":
+                case COMMENTS:
                     Comments.jsonIterable(jsonArray);
                     return urlComReplace;
-                case "albums":
+                case ALBUMS:
                     Albums.jsonIterable(jsonArray);
                     return urlComReplace;
-                case "users":
+                case USERS:
                     Users.jsonIterable(jsonArray);
                     return urlComReplace;
                 default:

@@ -61,7 +61,7 @@
         android:layout_below="@+id/btnSplash"
         android:textSize="16dp" />
     <Button
-        android:id="@+id/colecaoPosts"
+        android:id="@+id/colecao_posts"
         style="@style/MyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -73,12 +73,12 @@
         android:layout_height="20dp"
         android:layout_weight="1" />
     <Button
-        android:id="@+id/colecaoComments"
+        android:id="@+id/colecao_comments"
         style="@style/MyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="colecaoApi"
-        android:layout_below="@+id/colecaoPosts"
+        android:layout_below="@+id/colecao_posts"
         android:text="@string/comments" />
     <View
         android:layout_width="15dp"
@@ -86,12 +86,12 @@
         android:layout_weight="1"
         tools:ignore="ObsoleteLayoutParam" />
     <Button
-        android:id="@+id/colecaoAlbums"
+        android:id="@+id/colecao_albums"
         style="@style/MyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="colecaoApi"
-        android:layout_below="@+id/colecaoComments"
+        android:layout_below="@+id/colecao_comments"
         android:text="@string/albums"
         tools:targetApi="lollipop" />
     <View
@@ -100,13 +100,34 @@
         android:layout_weight="1"
         tools:ignore="ObsoleteLayoutParam" />
     <Button
-        android:id="@+id/colecaoUsers"
+        android:id="@+id/colecao_users"
         style="@style/MyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="colecaoApi"
-        android:layout_below="@+id/colecaoAlbums"
+        android:layout_below="@+id/colecao_albums"
         android:text="@string/users"
         tools:targetApi="lollipop" />
+    <View
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_weight="1" />
+    <TextView
+        android:id="@+id/textAtividade3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Atividade 3:"
+        android:textColor="@color/white"
+        android:layout_below="@+id/colecao_users"
+        android:textSize="16dp" />
+    <Button
+        android:id="@+id/colecao_recycler"
+        style="@style/MyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="colecaoApi"
+        android:layout_below="@+id/textAtividade3"
+        android:text="@string/recycler" />
 
 </RelativeLayout>
